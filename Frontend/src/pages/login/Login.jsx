@@ -27,7 +27,8 @@ function Login() {
     try {
      
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        // "http://localhost:5000/api/auth/login"||
+         "https://medical-automation-for-srm-ap.onrender.com/api/auth/login",
         { email: trimmedEmail, password }
       );
       localStorage.setItem("token", response.data.token);
@@ -55,7 +56,7 @@ function Login() {
 
   const handleGoogleLogin = () => {
     
-    window.location.href = "http://localhost:5000/api/google";
+    window.location.href ="https://medical-automation-for-srm-ap.onrender.com/api/google";
   };
 
   return (

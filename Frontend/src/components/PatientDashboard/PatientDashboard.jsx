@@ -48,7 +48,7 @@ function PatientDashboard() {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://localhost:5000/api/patient/profile", {
+        .get("https://medical-automation-for-srm-ap.onrender.com/api/patient/profile", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -72,7 +72,7 @@ function PatientDashboard() {
     }
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/patient/profile",
+        "https://medical-automation-for-srm-ap.onrender.com/api/patient/profile",
         editData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -106,7 +106,7 @@ function PatientDashboard() {
 
       // Make POST request to book-appointment
       const response = await axios.post(
-        "http://localhost:5000/api/patient/book-appointment",
+        "https://medical-automation-for-srm-ap.onrender.com/api/patient/book-appointment",
         {
           appointmentDate,
           details: newAppointment.details,
@@ -176,7 +176,7 @@ function PatientDashboard() {
         formData.append("report", formDataObj.reportFile);
       }
       const response = await axios.post(
-        "http://localhost:5000/api/patient/submit-leave",
+        "https://medical-automation-for-srm-ap.onrender.com/api/patient/submit-leave",
         formData,
         {
           headers: {
@@ -198,7 +198,7 @@ function PatientDashboard() {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://localhost:5000/api/patient/appointments", {
+        .get("https://medical-automation-for-srm-ap.onrender.com/api/patient/appointments", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {

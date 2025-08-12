@@ -12,7 +12,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID, // Google Client ID from .env
       clientSecret: process.env.GOOGLE_CLIENT_SECRET, // Google Client Secret from .env
-      callbackURL: "http://localhost:5000/api/google/callback", // Callback URL for Google OAuth
+      callbackURL: "https://medical-automation-for-srm-ap.onrender.com/api/google/callback", // Callback URL for Google OAuth
     },
     async (accessToken, refreshToken, profile, done) => {
       try {

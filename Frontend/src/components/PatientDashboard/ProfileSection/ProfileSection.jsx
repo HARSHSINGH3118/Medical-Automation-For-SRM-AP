@@ -21,7 +21,7 @@ function ProfileSection() {
     }
 
     axios
-      .get("http://localhost:5000/api/patient/profile", {
+      .get("https://medical-automation-for-srm-ap.onrender.com/api/patient/profile", {
         headers: {
           Authorization: `Bearer ${token}`, // Pass JWT in header
         },

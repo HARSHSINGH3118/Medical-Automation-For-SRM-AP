@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 function Sidebar({ activeTab, setActiveTab, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleItemClick = (tab) => {
     setActiveTab(tab);
-    setIsMenuOpen(false); // Close the menu on mobile when an item is clicked
+    setIsMenuOpen(false); // Close menu in mobile
+  };
+
+  const handleLogout = () => {
+    if (onLogout) onLogout(); // clear auth state
+    localStorage.clear();
+    sessionStorage.clear();
+    setActiveTab("profile"); // reset default tab
+    navigate("/"); // go to base URL (localhost:5173) without /login
   };
 
   return (
@@ -20,6 +30,7 @@ function Sidebar({ activeTab, setActiveTab, onLogout }) {
             className="srm-sidebar-logo"
           />
         </div>
+
         <ul className="sidebar-menu">
           <li
             className={activeTab === "profile" ? "active" : ""}
@@ -47,24 +58,22 @@ function Sidebar({ activeTab, setActiveTab, onLogout }) {
           </li>
           <li
             className={activeTab === "advisory" ? "active" : ""}
-            onClick={() => setActiveTab("advisory")}
+            onClick={() => handleItemClick("advisory")}
           >
             ADVISORY
           </li>
           <li
             className={activeTab === "leave" ? "active" : ""}
-            onClick={() => setActiveTab("leave")}
+            onClick={() => handleItemClick("leave")}
           >
             MEDICAL LEAVE
           </li>
-
           <li
             className={activeTab === "leave-status" ? "active" : ""}
             onClick={() => handleItemClick("leave-status")}
           >
             Leave Status
           </li>
-
           <li
             className={activeTab === "contact" ? "active" : ""}
             onClick={() => handleItemClick("contact")}
@@ -72,9 +81,13 @@ function Sidebar({ activeTab, setActiveTab, onLogout }) {
             Contact SRM AP
           </li>
         </ul>
-        <button className="logout-btn-new" onClick={onLogout}>
-          Logout
-        </button>
+
+        {/* Keep logout button fixed in place */}
+        <div className="logout-container">
+          <button className="logout-btn-new" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
 
       {/* Mobile Top Navbar */}
@@ -94,6 +107,7 @@ function Sidebar({ activeTab, setActiveTab, onLogout }) {
             <div className="bar"></div>
           </button>
         </div>
+
         {isMenuOpen && (
           <ul className="navbar-menu">
             <li
@@ -126,7 +140,7 @@ function Sidebar({ activeTab, setActiveTab, onLogout }) {
             >
               Contact SRM AP
             </li>
-            <li onClick={onLogout}>Logout</li>
+            <li onClick={handleLogout}>Logout</li>
           </ul>
         )}
       </div>

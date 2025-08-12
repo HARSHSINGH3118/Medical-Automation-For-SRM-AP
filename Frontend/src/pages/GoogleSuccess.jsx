@@ -13,7 +13,7 @@ function GoogleSuccess() {
       localStorage.setItem("token", token);
 
       // Fetch current user details to check profile completeness
-      fetch("http://localhost:5000/api/patient/me", {
+      fetch("https://medical-automation-for-srm-ap.onrender.com/api/patient/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())

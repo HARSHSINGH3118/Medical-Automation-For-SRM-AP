@@ -27,7 +27,7 @@ function CompleteProfile() {
 
     try {
       await axios.put(
-        "http://localhost:5000/api/patient/complete-profile",
+        "https://medical-automation-for-srm-ap.onrender.com/api/patient/complete-profile",
         { hostelName, roomNo, branch, section, gender, contact },
         { headers: { Authorization: `Bearer ${token}` } }
       );

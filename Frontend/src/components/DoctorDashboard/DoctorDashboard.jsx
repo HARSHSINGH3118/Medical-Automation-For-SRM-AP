@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";  
 import DoctorSidebar from "./DoctorSidebar/DoctorSidebar";
 import DoctorProfile from "./DoctorProfile/DoctorProfile";
 import DoctorAppointments from "./Appointments/DoctorAppointments";
@@ -11,7 +12,6 @@ import "./DoctorDashboard.css";
 
 function DoctorDashboard() {
   const [activeTab, setActiveTab] = useState("profile");
- 
   const [doctorData, setDoctorData] = useState({
     name: "",
     specialization: "",
@@ -19,29 +19,24 @@ function DoctorDashboard() {
     workingDays: "",
     timeSlot: "",
   });
-
- 
   const [statsData, setStatsData] = useState({
     totalAppointments: 0,
     acceptedAppointments: 0,
     pendingAppointments: 0,
   });
-
-  
   const [appointments, setAppointments] = useState([]);
   const [prescriptions, setPrescriptions] = useState({});
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-
- 
   const [historyAppointments, setHistoryAppointments] = useState([]);
+
+  const navigate = useNavigate();  
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     toast.info("Logged out successfully.");
-    window.location.href = "/login";
+    navigate("/"); 
   };
 
-   
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -51,9 +46,10 @@ function DoctorDashboard() {
     }
 
     axios
-      .get("http://localhost:5000/api/doctor/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/profile",
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((response) => {
         const doctor = response.data.doctor;
         setDoctorData({
@@ -74,15 +70,15 @@ function DoctorDashboard() {
       });
   }, []);
 
-  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
     axios
-      .get("http://localhost:5000/api/doctor/appointments/new", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/appointments/new",
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((res) => {
         setAppointments(res.data.appointments);
       })
@@ -92,15 +88,15 @@ function DoctorDashboard() {
       });
   }, []);
 
-   
   const fetchAppointmentHistory = () => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
     axios
-      .get("http://localhost:5000/api/doctor/appointments/history", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/appointments/history",
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((res) => {
         setHistoryAppointments(res.data.appointments);
       })
@@ -110,19 +106,17 @@ function DoctorDashboard() {
       });
   };
 
-  
   useEffect(() => {
     fetchAppointmentHistory();
   }, [appointments]);
 
-   
   const handleAccept = async (appointmentId) => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/doctor/appointments/update",
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/appointments/update",
         { appointmentId, status: "Accepted" },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -147,13 +141,12 @@ function DoctorDashboard() {
     }
   };
 
-  
   const handleReject = async (appointmentId) => {
     const token = localStorage.getItem("token");
     if (!token) return;
     try {
       await axios.post(
-        "http://localhost:5000/api/doctor/appointments/update",
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/appointments/update",
         { appointmentId, status: "Rejected" },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -168,12 +161,10 @@ function DoctorDashboard() {
     }
   };
 
-   
   const handlePrescriptionChange = (appointmentId, value) => {
     setPrescriptions((prev) => ({ ...prev, [appointmentId]: value }));
   };
 
- 
   const handleAddPrescription = async (appointment) => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -188,7 +179,7 @@ function DoctorDashboard() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/doctor/appointments/prescription",
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/appointments/prescription",
         { appointmentId, prescriptionText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -199,12 +190,10 @@ function DoctorDashboard() {
         toast.error(" Failed to add prescription.");
       }
 
-      
       setAppointments((prev) =>
         prev.filter((apt) => apt.appointmentId !== appointmentId)
       );
 
-   
       setPrescriptions((prev) => {
         const newPrescriptions = { ...prev };
         delete newPrescriptions[appointmentId];
@@ -212,8 +201,6 @@ function DoctorDashboard() {
       });
 
       setSelectedAppointment(null);
-
-     
       fetchAppointmentHistory();
     } catch (error) {
       console.error("Error adding prescription:", error);

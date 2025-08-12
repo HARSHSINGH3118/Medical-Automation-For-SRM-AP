@@ -30,7 +30,7 @@ function SignUp() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://medical-automation-for-srm-ap.onrender.com/api/auth/signup",
         {
           name,
           email: trimmedEmail,
@@ -79,7 +79,7 @@ function SignUp() {
 
   const handleGoogleSignUp = () => {
   
-    window.location.href = "http://localhost:5000/api/google";
+    window.location.href = "https://medical-automation-for-srm-ap.onrender.com/api/google";
   };
 
   return (

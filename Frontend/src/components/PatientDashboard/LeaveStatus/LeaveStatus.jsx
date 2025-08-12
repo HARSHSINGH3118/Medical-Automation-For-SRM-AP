@@ -17,7 +17,7 @@ function LeaveStatus() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:5000/api/patient/leave-forms",
+          "https://medical-automation-for-srm-ap.onrender.com/api/patient/leave-forms",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

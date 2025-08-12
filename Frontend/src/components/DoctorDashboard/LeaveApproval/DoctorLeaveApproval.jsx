@@ -21,7 +21,7 @@ function DoctorLeaveApproval() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:5000/api/doctor/leave-forms",
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/leave-forms",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -37,7 +37,7 @@ function DoctorLeaveApproval() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/doctor/leave-forms/update",
+        "https://medical-automation-for-srm-ap.onrender.com/api/doctor/leave-forms/update",
         { leaveFormId: leaveId, status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

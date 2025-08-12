@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://medical-automation-for-srm-ap.onrender.com/api";
 
 // **Email Domain Check:** Ensure email ends with "srmap.edu.in"
 function validateEmail(email) {

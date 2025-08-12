@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./DoctorSidebar.css";
 
 function DoctorSidebar({ activeTab, setActiveTab, onLogout }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleItemClick = (tab) => {
     setActiveTab(tab);
     setIsMenuOpen(false); // Close the menu on mobile
+  };
+
+  const handleLogout = () => {
+    if (onLogout) onLogout(); // clear auth state in parent if provided
+    localStorage.clear();
+    sessionStorage.clear();
+    navigate("/");  
   };
 
   return (
@@ -58,7 +68,7 @@ function DoctorSidebar({ activeTab, setActiveTab, onLogout }) {
             Contact SRM AP
           </li>
         </ul>
-        <button className="doctor-logout-btn" onClick={onLogout}>
+        <button className="doctor-logout-btn" onClick={handleLogout}>
           Logout
         </button>
       </div>
@@ -118,7 +128,9 @@ function DoctorSidebar({ activeTab, setActiveTab, onLogout }) {
             >
               Contact SRM AP
             </li>
-            <li onClick={onLogout}>Logout</li>
+           <Link to="/" className="doctor-logout-btn" onClick={onLogout}>
+  Logout
+</Link>
           </ul>
         )}
       </div>
