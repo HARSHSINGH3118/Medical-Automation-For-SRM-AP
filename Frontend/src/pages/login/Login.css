@@ -1,0 +1,172 @@
+/* Reset body/browser spacing */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Container: full screen, split into left (image) and right (form) */
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+/* Left side: 3/4 background image */
+.left-section {
+  flex: 3;
+  background: url("/assets/login.png") no-repeat center center;
+  background-size: cover;
+  background-color: #ccc; /* Fallback if image doesn't load */
+}
+
+/* Right side: 1/4, with a light gray background */
+.right-section {
+  flex: 1;
+  background-color: #f5f5f5; /* Slightly off-white/gray for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The white "card" container for the login form */
+.login-card {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 400px; /* Limit the width on larger screens */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title above the form */
+.title {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* The form inside the card */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align labels and inputs to the left */
+  margin-bottom: 1rem;
+}
+
+.login-form label {
+  margin: 0 0.2rem;
+  font-weight: 600;
+}
+
+.login-form input {
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Login button */
+.login-btn {
+  background-color: #4b5320; /* Example: SRM's gold/greenish color */
+  color: #fff;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background-color: #384017;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #aaa;
+}
+
+/* Google sign-in button */
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  background-color: #fff; /* White background */
+  color: #555; /* Dark text */
+  padding: 0.6rem;
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.google-login-btn:hover {
+  background-color: #eee;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Sign-up text */
+.signup-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #4b5320;
+  text-decoration: none;
+}
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  /* Stack the background image on top, form below */
+  .login-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-section {
+    flex: none;
+    width: 100%;
+    height: 40vh; /* Some vertical space for the image */
+  }
+
+  .right-section {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0; /* Extra padding for smaller screens */
+  }
+
+  .login-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

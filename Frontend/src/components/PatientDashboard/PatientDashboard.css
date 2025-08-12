@@ -1,0 +1,23 @@
+/* Overall container for dashboard */
+.patient-dashboard-container-new {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Main content area */
+.main-content-new {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .patient-dashboard-container-new {
+    flex-direction: column;
+  }
+  .main-content-new {
+    padding: 1rem;
+  }
+}

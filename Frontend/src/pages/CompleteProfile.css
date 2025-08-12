@@ -1,0 +1,149 @@
+/* CompleteProfile.css */
+
+/* 
+  Define SRM AP brand colors. Adjust to your official specs if needed.
+  Green: #00694a
+  Gold : #d4af37
+*/
+:root {
+  --srm-green: #8e9f2e;
+  --srm-gold: #37d4b7;
+}
+
+/* Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* Body to show a subtle background and center content */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f8f8;
+}
+
+/* 
+    Main wrapper to center the card both horizontally and vertically.
+    Uses flex layout with a minimum height of the viewport.
+  */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Card container */
+.complete-profile-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  max-width: 90%;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Title styling with SRM Green */
+.complete-profile-card h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--srm-green);
+  margin-bottom: 1rem;
+}
+
+/* Form styling */
+.complete-profile-card form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: left;
+}
+
+/* Label styling */
+.complete-profile-card label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+/* Input & select fields */
+.complete-profile-card input,
+.complete-profile-card select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+/* Hover & focus for fields */
+.complete-profile-card input:hover,
+.complete-profile-card select:hover {
+  border-color: #999;
+}
+
+.complete-profile-card input:focus,
+.complete-profile-card select:focus {
+  outline: none;
+  border-color: var(--srm-green);
+  box-shadow: 0 0 8px rgba(0, 105, 74, 0.3);
+}
+
+/* Button with SRM Green background and gold hover */
+.complete-profile-card button {
+  cursor: pointer;
+  background-color: var(--srm-green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.complete-profile-card button:hover {
+  background-color: var(--srm-gold);
+  color: #000; /* contrasts better on gold */
+}
+
+/* Animated disclaimer in gold with a subtle fade effect */
+.disclaimer {
+  margin-top: 1.5rem;
+  color: var(--srm-gold);
+  font-style: italic;
+  position: relative;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: fadeDisclaimer 1.8s infinite alternate;
+}
+
+@keyframes fadeDisclaimer {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 480px) {
+  .complete-profile-card {
+    width: 100%;
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+
+  .complete-profile-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+}

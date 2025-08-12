@@ -1,0 +1,60 @@
+.appointment-history-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-history-section h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.appointment-date-group {
+  margin-bottom: 2rem;
+}
+
+.date-heading {
+  font-size: 1.4rem;
+  color: #4b5320;
+  border-bottom: 2px solid #4b5320;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.appointment-cards-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.appointment-history-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.appointment-history-card:hover {
+  transform: translateY(-3px);
+}
+
+.appointment-history-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .appointment-history-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}

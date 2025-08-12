@@ -1,0 +1,109 @@
+/* Container for the history section */
+.history-section-new {
+  background: linear-gradient(135deg, #f2f2f2, #ffffff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Header styling */
+.history-section-new h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #4b5320; /* SRMAP green */
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Grid container for appointment cards */
+.history-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Keyframes for animated background */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassmorphism with animated moving background */
+.history-card {
+  border-radius: 10px;
+  padding: 1.2rem;
+  position: relative;
+  width: 280px; /* Fixed standard width */
+  border: 1px solid rgba(75, 83, 32, 0.5); /* thin border with SRMAP color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #f7f9f2, #ffffff, #f7f9f2);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: slight lift */
+.history-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for text inside the appointment card */
+.history-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #000; /* Changed text color to black */
+  line-height: 1.4;
+}
+
+/* Add a subtle divider between text elements */
+.history-card p:not(:last-child) {
+  border-bottom: 1px dotted rgba(75, 83, 32, 0.5);
+  padding-bottom: 0.5rem;
+}
+
+/* Revisit button styling */
+.revisit-btn {
+  background-color: #4b5320;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Revisit button hover effect */
+.revisit-btn:hover {
+  background-color: #384017;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .history-section-new {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .history-section-new h2 {
+    font-size: 1.6rem;
+  }
+
+  .history-card {
+    width: 90%; /* Adjust width on small screens */
+  }
+}

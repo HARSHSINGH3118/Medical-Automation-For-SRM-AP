@@ -1,0 +1,24 @@
+.doctor-dashboard-container {
+  display: flex;
+  height: 100vh; /* fill viewport height */
+  overflow: hidden;
+}
+
+/* 
+  The main content is offset on mobile 
+  because the navbar is fixed at the top 
+*/
+.doctor-main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f7f7f7;
+}
+
+/* For smaller screens, we shift the content down 
+   so it doesn't hide behind the fixed navbar */
+@media (max-width: 768px) {
+  .doctor-main-content {
+    margin-top: 60px; /* approximate navbar height */
+  }
+}

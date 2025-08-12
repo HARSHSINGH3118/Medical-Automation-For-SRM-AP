@@ -1,0 +1,139 @@
+/* 
+  DESKTOP SIDEBAR 
+  Visible on screens wider than 768px 
+*/
+.sidebar-doctor-desktop {
+  width: 240px;
+  background-color: #1c1c1c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  height: 100vh; /* fill the viewport on desktop */
+}
+
+.doctor-logo-section {
+  margin-bottom: 1rem;
+}
+
+.doctor-sidebar-logo {
+  width: 120px;
+  height: auto;
+}
+
+.doctor-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin-bottom: auto; /* push logout button to bottom */
+}
+
+.doctor-sidebar-menu li {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.doctor-sidebar-menu li:hover {
+  background-color: #333;
+}
+
+.active {
+  background-color: #444;
+}
+
+.doctor-logout-btn {
+  margin: 1rem 0;
+  background-color: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* 
+    MOBILE NAVBAR 
+    Visible on screens below 768px 
+  */
+.navbar-doctor-mobile {
+  display: none;
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.navbar-header-doctor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.doctor-navbar-logo {
+  width: 80px;
+  height: auto;
+}
+
+.hamburger-btn-doctor {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar-doctor {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+}
+
+/* Mobile dropdown menu */
+.navbar-menu-doctor {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  border-top: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-menu-doctor li {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.2s;
+}
+
+.navbar-menu-doctor li:hover {
+  background-color: #333;
+}
+
+.navbar-menu-doctor li.active {
+  background-color: #444;
+}
+
+/* 
+    MEDIA QUERIES 
+  */
+@media (max-width: 768px) {
+  .sidebar-doctor-desktop {
+    display: none; /* hide desktop sidebar */
+  }
+  .navbar-doctor-mobile {
+    display: block; /* show mobile navbar */
+    position: fixed; /* pin it at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999; /* above main content */
+  }
+}

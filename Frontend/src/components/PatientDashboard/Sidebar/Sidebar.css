@@ -1,0 +1,116 @@
+/* Desktop Sidebar */
+.sidebar-desktop {
+  width: 240px;
+  background-color: #1c1c1c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.logo-section {
+  margin-bottom: 1rem;
+}
+
+.srm-sidebar-logo {
+  width: 120px;
+  height: auto;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin-bottom: auto;
+}
+
+.sidebar-menu li {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.sidebar-menu li:hover {
+  background-color: #333;
+}
+
+.active {
+  background-color: #444;
+}
+
+.logout-btn-new {
+  margin: 1rem 0;
+  background-color: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Mobile Navbar */
+.navbar-mobile {
+  display: none;
+}
+
+/* Mobile styles: when screen width is below 768px */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar */
+  .sidebar-desktop {
+    display: none;
+  }
+  /* Display mobile navbar */
+  .navbar-mobile {
+    display: block;
+    width: 100%;
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .srm-navbar-logo {
+    width: 80px;
+    height: auto;
+  }
+  .hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+  }
+  .navbar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar-menu li {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    border-top: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  .navbar-menu li:hover {
+    background-color: #333;
+  }
+  .navbar-menu li.active {
+    background-color: #444;
+  }
+}

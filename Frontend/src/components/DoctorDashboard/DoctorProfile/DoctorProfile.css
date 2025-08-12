@@ -1,0 +1,86 @@
+.profile-section-distinct {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title-distinct {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.profile-cards-wrapper-distinct {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.profile-card-left-distinct {
+  flex: 1;
+  min-width: 300px;
+  background: url("/assets/pfbg.png") no-repeat center center;
+  background-size: cover;
+  border-radius: 8px;
+  position: relative;
+  height: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info-overlay-distinct {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.doctor-name-distinct {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.profile-card-right-distinct {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card-right-distinct h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.profile-card-right-distinct p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .profile-cards-wrapper-distinct {
+    flex-direction: column;
+  }
+  .profile-card-left-distinct,
+  .profile-card-right-distinct {
+    width: 100%;
+    margin-bottom: 1rem;
+    min-width: auto;
+    height: auto;
+  }
+  .profile-info-overlay-distinct {
+    height: auto;
+  }
+}

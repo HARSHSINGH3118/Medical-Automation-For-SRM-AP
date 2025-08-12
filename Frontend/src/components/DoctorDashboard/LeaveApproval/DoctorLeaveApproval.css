@@ -1,0 +1,102 @@
+.doctor-leave-approval-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-leave-approval-section h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Grid layout for leave request cards */
+.leave-requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* Styling for individual leave request cards */
+.leave-request-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.leave-request-card:hover {
+  transform: translateY(-3px);
+}
+
+.leave-request-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Action buttons for approve/reject */
+.leave-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.approve-btn,
+.reject-btn {
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+.approve-btn:hover {
+  background-color: #4cae4c;
+}
+
+.reject-btn {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.reject-btn:hover {
+  background-color: #c9302c;
+}
+
+/* View Report button */
+.view-report-btn {
+  background-color: #4b5320;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.view-report-btn:hover {
+  background-color: #384017;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .doctor-leave-approval-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}

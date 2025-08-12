@@ -1,0 +1,191 @@
+/* Reset body/browser spacing */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Container: full screen, split into left (image) and right (form) */
+.signup-container-distinct {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide horizontal overflow if any */
+}
+
+/* Left side: now 2 parts instead of 3 */
+.left-section-signup {
+  flex: 2;
+  position: relative;
+  background: url("/assets/signup.jpg") no-repeat center center;
+  background-size: cover;
+  border-top-right-radius: 30px; /* Adjust curve as desired */
+  border-bottom-right-radius: 30px;
+  overflow: hidden; /* Ensures the image doesn't spill outside the curve */
+}
+
+/* SRM logo overlay (optional) */
+.srm-logo-signup {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: auto;
+}
+
+/* Right side: now 1 part instead of 1 (so total 2+1 = 3) */
+.right-section-signup {
+  flex: 1;
+  background-color: #f5f5f5; /* Slightly off-white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Extra padding to give more space */
+}
+
+/* The white "card" container for the sign-up form */
+.signup-card-distinct {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 450px; /* Increased from 400px to 450px */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  /* If the form is too long, make the card scrollable */
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Title above the form */
+.title-signup {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* The form inside the card */
+.signup-form-distinct {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align labels and inputs to the left */
+  margin-bottom: 1rem;
+}
+
+.signup-form-distinct label {
+  margin: 0 0.2rem;
+  font-weight: 600;
+}
+
+.signup-form-distinct input,
+.signup-form-distinct select {
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Submit button */
+.signup-btn-distinct {
+  background-color: #4b5320; /* Example: SRM's gold/greenish color */
+  color: #fff;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.signup-btn-distinct:hover {
+  background-color: #384017;
+}
+
+/* Divider text */
+.divider-signup {
+  text-align: center;
+  margin: 1rem 0;
+  color: #aaa;
+}
+
+/* Google sign-up button */
+.google-signup-btn-distinct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  background-color: #fff; /* White background */
+  color: #555;
+  padding: 0.6rem;
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.google-signup-btn-distinct:hover {
+  background-color: #eee;
+}
+
+.google-icon-signup {
+  width: 20px;
+  height: 20px;
+}
+
+/* Already have an account? Log In text */
+.login-text-distinct {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-text-distinct a {
+  color: #4b5320;
+  text-decoration: none;
+}
+.login-text-distinct a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  /* Stack the background image on top, form below */
+  .signup-container-distinct {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-section-signup {
+    flex: none;
+    width: 100%;
+    height: 40vh; /* Some vertical space for the image */
+    border-radius: 0; /* Remove radius on mobile if you prefer a full-width image */
+  }
+
+  .right-section-signup {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0; /* Extra padding for smaller screens */
+  }
+
+  .signup-card-distinct {
+    width: 90%;
+    margin: 0 auto;
+    max-height: none; /* Let it expand on mobile if needed */
+    overflow-y: visible;
+  }
+}

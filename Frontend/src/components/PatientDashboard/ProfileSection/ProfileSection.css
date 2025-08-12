@@ -1,0 +1,90 @@
+/* Container for the entire section */
+.profile-section-new {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Title above the cards */
+.profile-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Wrapper to hold left (user details) and right (hours & contact) cards */
+.profile-cards-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+/* Left card: background image with user details overlay */
+.profile-card-left {
+  flex: 1;
+  min-width: 300px;
+  background: url("/assets/pfbg.png") no-repeat center center;
+  background-size: cover;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Let height grow with content, no scrollbar */
+}
+
+/* Semi-transparent overlay for text */
+.profile-info-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+
+  padding: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Name styling */
+.profile-name {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+/* Two-column layout for user details inside the overlay */
+.details-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Each column */
+.col-left,
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Right card: Hours & Contact */
+.profile-card-right {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-cards-wrapper {
+    flex-direction: column;
+  }
+  .profile-card-left,
+  .profile-card-right {
+    width: 100%;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+}
