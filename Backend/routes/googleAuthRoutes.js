@@ -27,7 +27,8 @@ router.get(
       { expiresIn: "1d" }
     );
     // Redirect to your frontend's GoogleSuccess page (which will then check if profile is complete)
-    res.redirect(`https://medical-automation-for-srm-ap.vercel.app/?token=${token}`);
+   res.redirect(
+  `https://medical-automation-for-srm-ap.vercel.app/google-success?token=${token}`);
   }
 );
 
